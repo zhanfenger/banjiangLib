@@ -1,0 +1,10 @@
+<view class="e-series-table">
+  <view class="header">
+    <text>E系列电阻推荐值</text>
+  </view>
+  <view class="values">
+    <block wx:for="{{eSeriesValues}}" wx:key="index">
+      <text class="value">{{item}} Ω</text>
+    </block>
+  </view>
+</view>

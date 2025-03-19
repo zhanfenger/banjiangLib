@@ -1,0 +1,29 @@
+.container {
+  padding: 20px;
+}
+
+.tool-category {
+  margin-bottom: 30px;
+}
+
+.category-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tool-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tool-item image {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.tool-item text {
+  font-size: 16px;
+}

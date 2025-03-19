@@ -1,0 +1,8 @@
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group picker,
+.input-group input {
+  margin-bottom: 10px;
+}

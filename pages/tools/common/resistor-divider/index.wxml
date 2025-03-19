@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="input-group">
+    <input type="number" bindinput="setVoltage" placeholder="输入电压 (V)" />
+    <input type="number" bindinput="setResistor1" placeholder="电阻1 (Ω)" />
+    <input type="number" bindinput="setResistor2" placeholder="电阻2 (Ω)" />
+  </view>
+  <button bindtap="calculate">计算</button>
+  <view class="result" wx:if="{{result}}">
+    <text>输出电压：{{result.outputVoltage}} V</text>
+    <text>电流：{{result.current}} A</text>
+  </view>
+  <ad unit-id="your-ad-unit-id"></ad>
+</view>

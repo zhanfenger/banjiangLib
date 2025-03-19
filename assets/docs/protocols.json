@@ -1,0 +1,20 @@
+{
+  "UART": {
+    "name": "UART",
+    "baudRate": "9600, 115200, 230400",
+    "voltageLevels": ["3.3V", "5V"],
+    "timingDiagram": "/assets/images/protocols/uart.png"
+  },
+  "I2C": {
+    "name": "I2C",
+    "baudRate": "100kHz, 400kHz",
+    "voltageLevels": ["3.3V", "5V"],
+    "timingDiagram": "/assets/images/protocols/i2c.png"
+  },
+  "SPI": {
+    "name": "SPI",
+    "baudRate": "1MHz, 10MHz",
+    "voltageLevels": ["3.3V", "5V"],
+    "timingDiagram": "/assets/images/protocols/spi.png"
+  }
+}

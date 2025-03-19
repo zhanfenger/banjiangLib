@@ -1,0 +1,3 @@
+<view class="diagram">
+  <image src="/assets/images/pcb/via-diagram.png" mode="widthFix"></image>
+</view>

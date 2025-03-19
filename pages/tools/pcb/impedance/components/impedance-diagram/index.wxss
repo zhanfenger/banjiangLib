@@ -1,0 +1,9 @@
+.impedance-diagram {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.impedance-diagram image {
+    width: 100%;
+    height: auto;
+}    

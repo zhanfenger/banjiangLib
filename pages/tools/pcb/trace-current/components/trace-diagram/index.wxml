@@ -1,0 +1,3 @@
+<view class="diagram">
+  <image src="/assets/images/pcb/trace-diagram.png" mode="widthFix"></image>
+</view>

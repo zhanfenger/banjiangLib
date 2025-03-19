@@ -1,0 +1,3 @@
+<view class="ad-banner">
+  <ad unit-id="your-ad-unit-id"></ad>
+</view>

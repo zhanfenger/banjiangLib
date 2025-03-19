@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="input-group">
+    <input type="number" bindinput="setTraceWidth" placeholder="线宽 (mm)" />
+    <input type="number" bindinput="setDielectricThickness" placeholder="介质厚度 (mm)" />
+    <input type="number" bindinput="setDielectricConstant" placeholder="介电常数" />
+  </view>
+  <button bindtap="calculate">计算</button>
+  <view class="result" wx:if="{{result}}">
+    <text>特性阻抗：{{result.impedance}} Ω</text>
+  </view>
+  <ad unit-id="your-ad-unit-id"></ad>
+</view>

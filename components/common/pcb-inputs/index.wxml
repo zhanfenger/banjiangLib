@@ -1,0 +1,6 @@
+<view class="input-group">
+  <picker bindchange="onCopperWeightChange" value="{{copperWeight}}">
+    <text>铜厚：{{copperOptions[copperWeight]}}</text>
+  </picker>
+  <input type="number" bindinput="onTraceWidthInput" placeholder="线宽 (mm)" />
+</view>

@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="input-group">
+    <input type="number" bindinput="setTraceWidth" placeholder="线宽 (mm)" />
+    <picker bindchange="setCopperWeight" value="{{copperWeight}}">
+      <text>铜厚：{{copperOptions[copperWeight]}}</text>
+    </picker>
+    <input type="number" bindinput="setTempRise" placeholder="允许温升 (°C)" />
+  </view>
+  <button bindtap="calculate">计算</button>
+  <view class="result" wx:if="{{result}}">
+    <text>最大电流：{{result.maxCurrent}} A</text>
+    <text>功率损耗：{{result.powerLoss}} W</text>
+  </view>
+  <ad unit-id="your-ad-unit-id"></ad>
+</view>

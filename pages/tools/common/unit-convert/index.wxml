@@ -1,0 +1,7 @@
+<!-- pages/tools/common/unit-convert/index.wxml -->
+<view class="container">
+    <import src="components/unit-switch/index.wxml" />
+    <template is="unit-switch" data="{{inputValue, fromUnit, toUnit, inputChange, fromUnitChange, toUnitChange}}" />
+    <button bindtap="convert">换算</button>
+    <template is="result-card" data="{{result}}" wx:if="{{result}}" />
+</view>    

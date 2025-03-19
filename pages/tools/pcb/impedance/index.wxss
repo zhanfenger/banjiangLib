@@ -1,0 +1,15 @@
+.container {
+  padding: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  margin-bottom: 10px;
+}
+
+.result {
+  margin-top: 20px;
+}

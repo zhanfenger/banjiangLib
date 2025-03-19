@@ -1,0 +1,14 @@
+/* pages/tools/common/unit-convert/index.wxss */
+.container {
+    padding: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}    

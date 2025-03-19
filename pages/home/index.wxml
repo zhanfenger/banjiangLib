@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="tool-category">
+    <text class="category-title">PCB设计工具</text>
+    <block wx:for="{{pcbTools}}" wx:key="id">
+      <navigator url="/pages/tools/pcb/{{item.id}}/index" class="tool-item">
+        <image src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </navigator>
+    </block>
+  </view>
+  <view class="tool-category">
+    <text class="category-title">通用工具</text>
+    <block wx:for="{{commonTools}}" wx:key="id">
+      <navigator url="/pages/tools/common/{{item.id}}/index" class="tool-item">
+        <image src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </navigator>
+    </block>
+  </view>
+</view>

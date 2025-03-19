@@ -1,0 +1,3 @@
+<view class="diagram">
+  <image src="/assets/images/resistor-diagram.png" mode="widthFix"></image>
+</view>

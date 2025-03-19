@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="input-group">
+    <block wx:for="{{toolConfig.inputs}}" wx:key="key">
+      <view wx:if="{{item.type === 'number'}}">
+        <input 
+          type="number" 
+          bindinput="onInputChange" 
+          data-key="{{item.key}}" 
+          placeholder="{{item.label}}" 
+        />
+      </view>
+      <view wx:elif="{{item.type === 'picker'}}">
+        <picker 
+          bindchange="onInputChange" 
+          data-key="{{item.key}}" 
+          value="{{inputs[item.key] || 0}}"
+        >
+          <text>{{item.label}}：{{item.options[inputs[item.key] || 0]}}</text>
+        </picker>
+      </view>
+    </block>
+  </view>
+  <button bindtap="calculate">计算</button>
+  <view class="result" wx:if="{{result}}">
+    <text>计算结果：{{result}}</text>
+  </view>
+  <ad unit-id="your-ad-unit-id"></ad>
+</view>

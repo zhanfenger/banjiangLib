@@ -1,0 +1,59 @@
+{
+  "appid": "wxed570521df24f587",
+  "projectname": "板匠实验室",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "",
+  "srcMiniprogramRoot": "",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "首页-快速开始",
+          "pathName": "pages/home/index",
+          "query": ""
+        },
+        {
+          "name": "PCB过孔电流工具",
+          "pathName": "pages/tools/pcb/via-current/index",
+          "query": ""
+        },
+        {
+          "name": "PCB电源线电流工具",
+          "pathName": "pages/tools/pcb/trace-current/index",
+          "query": ""
+        },
+        {
+          "name": "PCB走线阻抗工具",
+          "pathName": "pages/tools/pcb/impedance/index",
+          "query": ""
+        }
+      ]
+    }
+  },
+  "setting": {
+    "coverView": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmRelationList": [],
+    "compileHotReLoad": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}
