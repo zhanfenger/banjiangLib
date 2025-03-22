@@ -1,4 +1,4 @@
-const calculator = require('../../../services/calculator.js');
+const calculator = require('../../../../services/calculator.js');
 
 Page({
   data: {

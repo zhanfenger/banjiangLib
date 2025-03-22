@@ -1,4 +1,4 @@
-const toolsConfig = require('../../tools-config.json');
+const toolsConfig = require('../../../../tools-config.js');
 
 Page({
   data: {
