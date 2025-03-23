@@ -1,29 +1,99 @@
+/* pages/home/index.wxss */
 .container {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
 }
 
-.tool-category {
-  margin-bottom: 30px;
+/* 滚动消息栏 */
+.marquee-container {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 16px;
 }
 
-.category-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.marquee-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.marquee-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 14px;
+  color: #333;
+}
+
+/* 搜索框 */
+.search-container {
+  margin-bottom: 16px;
+}
+
+.search-input {
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* 书页式分类标题 */
+.category-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+
+.category-tab {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #666;
+  border-bottom: 2px solid transparent;
+}
+
+.category-tab.active {
+  color: #007bff;
+  border-bottom-color: #007bff;
+}
+
+/* 九宫格工具列表 */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 .tool-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 15px;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.tool-item image {
+.tool-icon {
   width: 40px;
   height: 40px;
-  margin-right: 10px;
+  margin-bottom: 8px;
 }
 
-.tool-item text {
-  font-size: 16px;
+.tool-name {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+}
+
+/* 广告展示 */
+.ad-container {
+  width: 100%;
+  margin-top: 16px;
 }

@@ -1,20 +1,47 @@
+<!-- pages/home/index.wxml -->
 <view class="container">
-  <view class="tool-category">
-    <text class="category-title">PCB设计工具</text>
-    <block wx:for="{{pcbTools}}" wx:key="id">
-      <navigator url="/pages/tools/pcb/{{item.id}}/index" class="tool-item">
-        <image src="{{item.icon}}"></image>
-        <text>{{item.name}}</text>
-      </navigator>
+  <!-- 滚动消息栏 -->
+  <view class="marquee-container">
+    <image class="marquee-icon" src="/assets/images/icon/speaker.png"></image>
+    <scroll-view class="marquee-text" scroll-x="true" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
+      <text>{{marqueeText}}</text>
+    </scroll-view>
+  </view>
+
+  <!-- 搜索框 -->
+  <view class="search-container">
+    <input
+      class="search-input"
+      placeholder="直接搜索想要的工具"
+      bindinput="onSearchInput"
+    />
+  </view>
+
+  <!-- 书页式分类标题 -->
+  <view class="category-tabs">
+    <block wx:for="{{categories}}" wx:key="id">
+      <view
+        class="category-tab {{activeCategory === item.id ? 'active' : ''}}"
+        bindtap="onCategoryTap"
+        data-id="{{item.id}}"
+      >
+        {{item.name}}
+      </view>
     </block>
   </view>
-  <view class="tool-category">
-    <text class="category-title">通用工具</text>
-    <block wx:for="{{commonTools}}" wx:key="id">
-      <navigator url="/pages/tools/common/{{item.id}}/index" class="tool-item">
-        <image src="{{item.icon}}"></image>
-        <text>{{item.name}}</text>
-      </navigator>
+
+  <!-- 九宫格工具列表 -->
+  <view class="tool-grid">
+    <block wx:for="{{filteredTools}}" wx:key="id">
+      <view class="tool-item" bindtap="onToolTap" data-id="{{item.id}}">
+        <image class="tool-icon" src="{{item.icon}}"></image>
+        <text class="tool-name">{{item.name}}</text>
+      </view>
     </block>
+  </view>
+
+  <!-- 广告展示 -->
+  <view class="ad-container">
+    <ad unit-id="your-ad-unit-id"></ad>
   </view>
 </view>
