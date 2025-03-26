@@ -9,8 +9,16 @@ Page({
   onLoad(options) {
     // 根据工具 ID 获取配置
     const toolId = options.id;
+    console.log('Tool ID:', toolId); // 调试信息
+
     const toolConfig = toolsConfig.pcb.concat(toolsConfig.common).find(tool => tool.id === toolId);
-    this.setData({ toolConfig });
+    console.log('Tool Config:', toolConfig); // 调试信息
+
+    if (toolConfig) {
+      this.setData({ toolConfig });
+    } else {
+      console.error('Tool config not found for ID:', toolId);
+    }
   },
 
   onInputChange(e) {

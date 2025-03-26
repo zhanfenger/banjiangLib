@@ -1,15 +1,22 @@
 <!-- pages/home/index.wxml -->
-<view class="container">
-  <!-- 滚动消息栏 -->
+<view class="container" bindtap="onPageTap">
+  <!-- 修正后的滚动消息栏 -->
   <view class="marquee-container">
     <image class="marquee-icon" src="/assets/images/icon/speaker.png"></image>
-    <scroll-view class="marquee-text" scroll-x="true" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
-      <text>{{marqueeText}}</text>
-    </scroll-view>
+    <view class="marquee-wrapper">
+      <view class="marquee-content" style="transform: translateX({{scrollPos}}px)">
+        {{marqueeText}}
+      </view>
+      <!-- 复制一份内容实现无缝衔接 -->
+      <view class="marquee-content" style="transform: translateX({{scrollPos + contentWidth}}px)">
+        {{marqueeText}}
+      </view>
+    </view>
   </view>
 
   <!-- 搜索框 -->
   <view class="search-container">
+    <icon class="search-icon" type="search" size="16" color="#999"></icon>
     <input
       class="search-input"
       placeholder="直接搜索想要的工具"
@@ -30,15 +37,21 @@
     </block>
   </view>
 
+  <!-- 可滚动的工具列表 -->
+<scroll-view class="tool-scroll" scroll-y="true">
   <!-- 九宫格工具列表 -->
   <view class="tool-grid">
     <block wx:for="{{filteredTools}}" wx:key="id">
       <view class="tool-item" bindtap="onToolTap" data-id="{{item.id}}">
-        <image class="tool-icon" src="{{item.icon}}"></image>
+        <view class="tool-logo-container">
+          <image class="tool-logo" src="{{item.logo}}" mode="aspectFit"></image>
+          <image class="tool-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        </view>
         <text class="tool-name">{{item.name}}</text>
       </view>
     </block>
   </view>
+</scroll-view>
 
   <!-- 广告展示 -->
   <view class="ad-container">
