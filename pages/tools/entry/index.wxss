@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 40rpx;
+}
+text {
+  font-size: 28rpx;
+  color: #666;
+}

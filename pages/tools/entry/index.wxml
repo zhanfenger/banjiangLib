@@ -1,0 +1,4 @@
+<view class="container">
+  <image src="/assets/images/loading.gif" mode="aspectFit"></image>
+  <text>工具资源加载中...</text>
+</view>

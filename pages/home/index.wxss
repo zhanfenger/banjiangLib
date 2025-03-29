@@ -1,130 +1,119 @@
 /* pages/home/index.wxss */
-/* 主容器：采用flex纵向布局，撑满整个视口高度 */
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;            /* 使用视口高度单位 */
-  padding: 15rpx;           /* 使用响应式单位rpx */
-  box-sizing: border-box;   /* 内边距计入宽高 */
+  height: 100vh;
+  padding: 15rpx;
+  box-sizing: border-box;
 }
 
-/* 跑马灯通知栏：水平滚动通知 */
+/* 跑马灯样式 */
 .marquee-container {
   display: flex;
-  align-items: center;      /* 垂直居中 */
+  align-items: center;
   height: 60rpx;
   padding: 0 20rpx;
-  background-color: #f5f5f5; /* 浅灰背景 */
-  border-radius: 30rpx;     /* 圆角效果 */
+  background-color: #f5f5f5;
+  border-radius: 30rpx;
   margin-bottom: 20rpx;
-  overflow: hidden;         /* 隐藏溢出内容 */
+  overflow: hidden;
 }
 
-/* 跑马灯喇叭图标 */
 .marquee-icon {
   width: 40rpx;
   height: 40rpx;
-  margin-right: 15rpx;      /* 图标与文字间距 */
-  flex-shrink: 0;           /* 防止图标被压缩 */
+  margin-right: 15rpx;
+  flex-shrink: 0;
 }
 
-/* 跑马灯文字容器 */
 .marquee-wrapper {
-  flex: 1;                  /* 占据剩余空间 */
+  flex: 1;
   display: flex;
   position: relative;
   height: 100%;
   overflow: hidden;
 }
 
-/* 跑马灯文字内容 */
 .marquee-content {
   position: absolute;
-  white-space: nowrap;      /* 禁止文字换行 */
-  line-height: 60rpx;       /* 垂直居中 */
+  white-space: nowrap;
+  line-height: 60rpx;
   font-size: 28rpx;
   color: #666;
-  padding-right: 40rpx;     /* 文字间间隔 */
+  padding-right: 40rpx;
 }
 
-/* 搜索框容器 */
+/* 搜索框 */
 .search-container {
   display: flex;
   align-items: center;
   padding: 20rpx;
   background-color: #f5f5f5;
-  border-radius: 50rpx;     /* 圆形搜索框 */
+  border-radius: 50rpx;
   margin-bottom: 20rpx;
 }
 
-/* 搜索图标 */
 .search-icon {
-  margin-right: 10rpx;      /* 图标与输入框间距 */
+  margin-right: 10rpx;
 }
 
-/* 搜索输入框 */
 .search-input {
-  flex: 1;                  /* 自动填充剩余空间 */
+  flex: 1;
   font-size: 28rpx;
 }
 
-/* 分类标签容器（横向滚动） */
+/* 分类标签 */
 .category-tabs {
   display: flex;
-  white-space: nowrap;      /* 标签不换行 */
-  overflow-x: auto;         /* 横向滚动 */
+  white-space: nowrap;
+  overflow-x: auto;
   margin-bottom: 20rpx;
-  padding-bottom: 10rpx;    /* 为滚动条预留空间 */
+  padding-bottom: 10rpx;
 }
 
-/* 单个分类标签 */
 .category-tab {
   padding: 15rpx 30rpx;
-  margin-right: 20rpx;      /* 标签间距 */
+  margin-right: 20rpx;
   background-color: #f5f5f5;
   border-radius: 30rpx;
   font-size: 28rpx;
 }
 
-/* 当前选中的分类标签 */
 .category-tab.active {
-  background-color: #07C160; /* 微信绿色 */
+  background-color: #07C160;
   color: white;
 }
 
-/* 工具列表滚动容器 */
+/* 工具列表 */
 .tool-scroll {
-  flex: 1;                  /* 占据剩余空间 */
-  height: 100%;             /* 继承父容器高度 */
+  flex: 1;
+  height: 100%;
 }
 
-/* 工具网格布局 */
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3列等宽布局 */
-  gap: 30rpx;               /* 网格间距 */
-  padding: 20rpx;           /* 内边距 */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30rpx;
+  padding: 20rpx;
 }
 
-/* 单个工具卡片 */
 .tool-item {
   display: flex;
-  flex-direction: column;   /* 纵向排列 */
-  align-items: center;      /* 水平居中 */
-  padding: 10rpx 20rpx;    /* 调整为更紧凑的内边距 */
-  background-color: rgba(255, 255, 255, 0.9); /* 半透明白色 */
+  flex-direction: column;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 20rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08); /* 柔和阴影 */
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
 }
 
-/* 工具logo容器（主视觉区域） */
 .tool-logo-container {
-  width: 180rpx;            /* 调整为更大的尺寸 */
+  width: 180rpx;
   height: 180rpx;
   border-radius: 24rpx;
-  background-color: rgba(255, 255, 255, 0.7); /* 更透明的背景 */
+  background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.12);
   display: flex;
   justify-content: center;
@@ -133,53 +122,76 @@
   margin-bottom: 20rpx;
 }
 
-/* 工具logo图片 */
 .tool-logo {
   width: 100%;
   height: 100%;
   border-radius: 20rpx;
-  object-fit: contain;      /* 保持图片比例 */
-  padding: 0rpx;           /* 移除内边距使图片更大 */
+  object-fit: contain;
+  padding: 0rpx;
   box-sizing: border-box;
 }
 
-/* 工具角标（注意：当前10rpx可能太小） */
 .tool-icon {
-  width: 10rpx;            /* 建议恢复为可见尺寸 */
-  height: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
   position: absolute;
-  bottom: 0rpx;           /* 调整位置避免溢出 */
-  right: -10rpx;
-  background-color: rgb(241, 135, 13); /* 橙色标识 */
+  bottom: 10rpx;
+  right: 10rpx;
+  background-color: rgb(241, 135, 13);
   border-radius: 50%;
   padding: 6rpx;
   box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
-  z-index: 2;              /* 确保显示在最上层 */
+  z-index: 2;
+  border: 2rpx solid white;
 }
 
-/* 工具名称 */
 .tool-name {
   font-size: 30rpx;
   color: #333;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 10rpx;
   width: 100%;
-  
-  /* 移除单行限制 */
-  white-space: normal;      /* 允许换行 */
-  word-wrap: break-word;    /* 允许单词内断行 */
-  display: -webkit-box;     /* 弹性伸缩盒子 */
-  -webkit-line-clamp: 2;    /* 最大显示2行 */
-  -webkit-box-orient: vertical; /* 垂直排列 */
-  overflow: hidden;         /* 隐藏超出部分 */
-  text-overflow: ellipsis;  /* 超出显示省略号 */
-  line-height: 1.4;         /* 增加行高 */
-  max-height: 84rpx;        /* 两行文字的大致高度（30rpx*2 + 行间距） */
+  white-space: normal;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  max-height: 84rpx;
 }
 
-/* 广告容器 */
+/* 广告位 */
 .ad-container {
   margin-top: 20rpx;
-  padding: 20rpx 0;        /* 上下内边距 */
+  padding: 20rpx 0;
+}
+
+/* 悬浮按钮 */
+.floating-tool-btn {
+  position: fixed;
+  right: 30rpx;
+  bottom: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #07C160;
+  border-radius: 50%;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: all 0.3s;
+}
+
+.floating-tool-btn image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.floating-tool-btn:active {
+  transform: scale(0.95);
+  opacity: 0.8;
 }

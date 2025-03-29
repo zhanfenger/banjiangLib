@@ -1,0 +1,24 @@
+{
+  "name": "pcb-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "板匠实验室小程序",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install:prod": "npm install --production --legacy-peer-deps",
+    "install:dev": "npm install --legacy-peer-deps"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.22.0",
+    "core-js": "3.30.0",
+    "wx-server-sdk": "2.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.22.0",
+    "@babel/plugin-transform-runtime": "7.22.0"
+  },
+  "resolutions": {
+    "@babel/runtime": "7.22.0"
+  }
+}

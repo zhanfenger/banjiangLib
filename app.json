@@ -1,12 +1,28 @@
 {
   "pages": [
-    "pages/home/index",
-    "pages/tools/pcb/via-current/index",
-    "pages/tools/pcb/trace-current/index",
-    "pages/tools/pcb/impedance/index",
-    "pages/tools/common/resistor-divider/index",
-    "pages/tools/common/unit-convert/index",
-    "pages/tools/common/protocol-reference/index"
+    "pages/home/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/tools",
+      "name": "tools",
+      "pages": [
+        "pcb/via-current/index",
+        "pcb/trace-current/index",
+        "pcb/impedance/index",
+        "common/resistor-divider/index",
+        "common/unit-convert/index",
+        "common/protocol-reference/index"
+      ]
+    },
+    {
+      "root": "pages/utils",
+      "pages": [
+        "calculator/index",
+        "standards/ipc/index",
+        "admin/index"
+      ]
+    }
   ],
   "window": {
     "navigationBarTitleText": "板匠实验室",
@@ -21,26 +37,33 @@
       {
         "pagePath": "pages/home/index",
         "text": "首页",
-        "iconPath": "assets/images/home.png",
-        "selectedIconPath": "assets/images/home-active.png"
+        "iconPath": "/assets/images/tabbar/home.png",
+        "selectedIconPath": "/assets/images/tabbar/home-active.png"
       },
       {
-        "pagePath": "pages/tools/pcb/via-current/index",
+        "pagePath": "pages/tools/entry/index",
         "text": "工具",
-        "iconPath": "assets/images/tools.png",
-        "selectedIconPath": "assets/images/tools-active.png"
+        "iconPath": "/assets/images/tabbar/tools.png",
+        "selectedIconPath": "/assets/images/tabbar/tools-active.png"
       }
     ],
     "color": "#999",
     "selectedColor": "#2c3e50",
     "backgroundColor": "#fff",
-    "borderStyle": "white"
+    "borderStyle": "white",
+    "position": "bottom"
   },
   "usingComponents": {
-    "pcb-inputs": "/components/common/pcb-inputs/index",
-    "e-series-table": "/components/common/e-series-table/index",
     "ad-banner": "/components/common/ad-banner/index",
     "result-card": "/components/shared/result-card/index"
   },
+  "preloadRule": {
+    "pages/home/index": {
+      "network": "all",
+      "packages": ["tools"]
+    }
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

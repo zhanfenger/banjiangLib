@@ -4,11 +4,10 @@ const toolsConfig = require('../../tools-config.js');
 Page({
   data: {
     marqueeText: '欢迎使用板匠实验室！这里有丰富的工具供您使用，你的满意是我们最大的荣耀。',
-    scrollPos: 0,          // 当前滚动位置
-    contentWidth: 0,       // 文本内容宽度
-    scrollSpeed: 50,       // 滚动速度(px/s)
-    marqueeTimer: null,    // 滚动计时器
-    
+    scrollPos: 0,
+    contentWidth: 0,
+    scrollSpeed: 50,
+    marqueeTimer: null,
     categories: [
       { id: 'pcb', name: 'PCB工具' },
       { id: 'common', name: '通用工具' }
@@ -40,10 +39,14 @@ Page({
 
   onUnload() {
     this.stopMarquee();
+    // 保存使用记录
+    wx.setStorage({
+      key: 'toolHistory',
+      data: getApp().globalData.toolHistory
+    });
   },
 
   initMarquee() {
-    // 计算文本宽度
     const query = wx.createSelectorQuery().in(this);
     query.select('.marquee-content').boundingClientRect(rect => {
       if (rect) {
@@ -58,21 +61,17 @@ Page({
   },
 
   startMarquee() {
-    this.stopMarquee(); // 先停止之前的动画
-    
+    this.stopMarquee();
     const speed = this.data.scrollSpeed;
-    const duration = 16; // 每16ms更新一次
+    const duration = 16;
     
     this.data.marqueeTimer = setInterval(() => {
       this.setData({
         scrollPos: this.data.scrollPos - (speed * duration / 1000)
       });
       
-      // 当第一份内容完全滚出时，重置位置
       if (this.data.scrollPos <= -this.data.contentWidth) {
-        this.setData({
-          scrollPos: 0
-        });
+        this.setData({ scrollPos: 0 });
       }
     }, duration);
   },
@@ -148,10 +147,10 @@ Page({
   },
 
   onToolTap(e) {
-    const toolId = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: `/pages/tools/${this.data.activeCategory}/${toolId}/index`
-    });
+    const url = `/pages/tools/${this.data.activeCategory}/${e.currentTarget.dataset.id}/index`;
+    const app = getApp();
+    app.globalData.toolHistory = [...(app.globalData.toolHistory || []).slice(-9), url];
+    wx.navigateTo({ url });
   },
   
   onPageTap() {
@@ -160,5 +159,53 @@ Page({
         isSearching: true
       });
     }
+  },
+
+  // 悬浮工具按钮点击事件
+  onToolMenuTap() {
+    const app = getApp();
+    const history = app.globalData.toolHistory || [];
+    
+    // 常用工具排序
+    const frequentTools = [
+      { name: '单位换算', path: '/pages/tools/common/unit-convert/index' },
+      { name: '协议速查', path: '/pages/tools/common/protocol-reference/index' },
+      { name: '电阻分压', path: '/pages/tools/common/resistor-divider/index' }
+    ].sort((a, b) => {
+      const countA = history.filter(h => h === a.path).length;
+      const countB = history.filter(h => h === b.path).length;
+      return countB - countA;
+    });
+
+    // 管理员功能检测
+    const itemList = [
+      ...frequentTools.map(t => t.name),
+      '工程计算器',
+      '设计规范(IPC)'
+    ];
+    if (app.globalData.isAdmin) {
+      itemList.push('管理后台');
+    }
+
+    wx.showActionSheet({
+      itemList,
+      success: (res) => {
+        let url;
+        if (res.tapIndex < frequentTools.length) {
+          url = frequentTools[res.tapIndex].path;
+        } else {
+          switch(res.tapIndex - frequentTools.length) {
+            case 0: url = '/pages/calculator/index'; break;
+            case 1: url = '/pages/standards/ipc'; break;
+            case 2: url = '/pages/admin/index'; break;
+          }
+        }
+        
+        // 记录使用历史
+        app.globalData.toolHistory = [...(history.slice(-9)), url];
+        wx.navigateTo({ url });
+      },
+      fail: () => wx.vibrateShort({ type: 'light' }) // 取消时震动反馈
+    });
   }
 });
